@@ -1,0 +1,50 @@
+ul {
+	background-color: #fdfdfd;
+	list-style-type: none;
+	padding: 0;
+
+	li {
+		padding: 20px;
+		border-bottom: 1px solid #ececec;
+		transition: all .3s;
+
+		h3 {
+			color: #c14141;
+			text-transform: uppercase;
+
+			div {
+				span {
+					text-transform: none;
+					color: #a7a7a7;
+				}
+			}
+		}
+
+		&:hover {
+			background-color: #c14141;
+			cursor: pointer;
+			padding: 25px 20px;
+
+			h3 {
+				color: #fdfdfd;
+
+				div {
+					span {
+						color: #fdfdfd;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+@media (min-width: 768px) {
+    ul {
+    	li {
+    		h3 {
+    			font-size: 1em; /* 16px */
+    		}
+    	}
+    }
+}

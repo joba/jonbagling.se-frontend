@@ -1,0 +1,9 @@
+<section>
+	<ul>
+		<li *ngFor="let post of allPosts">
+			<div class="container">
+				<h3>{{ post.title }} <div><span *ngFor="let tag of post.tags; let isLast = last">{{ tag.name }}{{isLast ? '' : ', '}}</span></div></h3>
+			</div>
+		</li>
+	</ul>
+</section>
