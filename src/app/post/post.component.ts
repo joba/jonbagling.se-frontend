@@ -13,6 +13,7 @@ export class PostComponent implements OnInit {
   private loading: boolean = true;
   private allPosts: Array<Post>;
   private activePosts: Array<Post>;
+  private selectedPost: Post = null;
 
   ngOnInit() {
   	this.postService.getPosts().subscribe(posts => {
@@ -24,10 +25,11 @@ export class PostComponent implements OnInit {
   }
 
   private filterPosts(posts) {
-    posts.forEach((post) => {
-      // console.log(this.activePosts);
-      // if(post.live) this.activePosts.push(post);
-    });
+    this.activePosts = posts.filter(post => post.live === '1');
+  }
+
+  private toggleInfo(event,post) {
+    this.selectedPost = (this.selectedPost === post) ? null : post;
   }
 
 }

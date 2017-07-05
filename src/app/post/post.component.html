@@ -1,8 +1,16 @@
 <section>
 	<ul>
-		<li *ngFor="let post of allPosts">
+		<li *ngFor="let post of activePosts" (click)="toggleInfo($event,post);" [ngClass]="{'open': selectedPost === post}">
 			<div class="container">
 				<h3>{{ post.title }} <div><span *ngFor="let tag of post.tags; let isLast = last">{{ tag.name }}{{isLast ? '' : ', '}}</span></div></h3>
+			</div>
+			<div class="container info" *ngIf="selectedPost === post">
+				<ul>
+					<li *ngIf="post.description"> {{ post.description }} </li>
+					<li *ngIf="post.agency"><strong>Agency: </strong> {{ post.agency }}</li>
+					<li *ngIf="post.url"><a href="{{ post.url }}" target="_blank" (click)="$event.stopPropagation();">{{ post.url }}</a></li>
+				</ul>
+				
 			</div>
 		</li>
 	</ul>
