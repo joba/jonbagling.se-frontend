@@ -14,14 +14,18 @@ export class PostComponent implements OnInit {
   private allPosts: Array<Post>;
   private activePosts: Array<Post>;
   private selectedPost: Post = null;
+  private error: string;
 
   ngOnInit() {
   	this.postService.getPosts().subscribe(posts => {
-  		console.log(posts);
   		this.allPosts = posts;
-  		this.loading = false;
+  	  this.loading = false;
       this.filterPosts(this.allPosts);
-  	});
+  	}, 
+      error => {
+        this.loading = false;
+        this.error = "Could not load posts, please try refreshing the page.";
+      });
   }
 
   private filterPosts(posts) {
