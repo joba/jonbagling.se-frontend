@@ -1,4 +1,9 @@
 <section>
+	<header>
+		<div class="container">
+			<h2>Selected work</h2>
+		</div>
+	</header>
 	<ul>
 		<li *ngFor="let post of allPosts" (click)="toggleInfo($event,post);" [ngClass]="{'open': selectedPost === post}">
 			<div class="container">

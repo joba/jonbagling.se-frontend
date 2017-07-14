@@ -2,6 +2,7 @@ ul {
 	background-color: #fdfdfd;
 	list-style-type: none;
 	padding: 0;
+	margin: 0;
 
 	li {
 		padding: 20px;
@@ -52,6 +53,19 @@ ul {
 					}
 				}
 			}
+		}
+	}
+}
+
+section {
+	header {
+		background-color: #fdfdfd;
+		border-bottom: 1px solid #ececec;
+		padding: 20px;
+
+		h2 {
+			margin-bottom: 0;
+			
 		}
 	}
 }
