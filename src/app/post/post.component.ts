@@ -10,11 +10,12 @@ import { Post } from '../models/post';
 export class PostComponent implements OnInit {
 
   constructor(private postService: PostService) { }
-  private loading: boolean = true;
-  private allPosts: Array<Post>;
+  public loading: boolean = true;
+  public allPosts: Array<Post>;
   private activePosts: Array<Post>;
+  private inActivePosts: Array<Post>;
   private selectedPost: Post = null;
-  private error: string;
+  public error: string;
 
   ngOnInit() {
   	this.postService.getPosts().subscribe(posts => {
@@ -29,7 +30,8 @@ export class PostComponent implements OnInit {
   }
 
   private filterPosts(posts) {
-    this.activePosts = posts.filter(post => post.live === '1');
+    this.activePosts = posts.filter(post => post.live === '1' || post.live === 1);
+    this.inActivePosts = posts.filter(post => post.live !== '1' && post.live !== 1);
   }
 
   private toggleInfo(event,post) {

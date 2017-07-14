@@ -21,7 +21,7 @@ ul {
 			}
 		}
 
-		&.open {
+		&:hover,&.open {
 			background-color: #c14141;
 			cursor: pointer;
 			padding: 25px 20px;
@@ -31,7 +31,7 @@ ul {
 
 				div {
 					span {
-						color: #fdfdfd;
+						color: #a7a7a7;
 					}
 				}
 			}
@@ -66,22 +66,6 @@ p.error {
     		h3 {
     			font-size: 1em; /* 16px */
     		}
-
-    		&:hover, &.open {
-				background-color: #c14141;
-				cursor: pointer;
-				padding: 25px 20px;
-	
-				h3 {
-					color: #fdfdfd;
-	
-					div {
-						span {
-							color: #fdfdfd;
-						}
-					}
-				}
-			}
     	}
     }
 }
