@@ -9,7 +9,6 @@ export class PostService {
 
   constructor(private http: Http) { }
 
-  // private apiEndpoint = 'http://localhost:8000/index.php/api/v1';
   private apiEndpoint = 'http://188.166.119.172/backend/index.php/api/v1';
 
   getPosts = (): Observable<Post[]> => {
