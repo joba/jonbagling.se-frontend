@@ -8,34 +8,16 @@ import { Post } from '../models/post';
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent implements OnInit {
+  public allPosts: Post[];
+  public selectedPost: Post = null;
 
-  constructor(private postService: PostService) { }
-  public loading: boolean = true;
-  public allPosts: Array<Post>;
-  private activePosts: Array<Post>;
-  private inActivePosts: Array<Post>;
-  private selectedPost: Post = null;
-  public error: string;
+  constructor(private postService: PostService) {}
 
   ngOnInit() {
-  	this.postService.getPosts().subscribe(posts => {
-  		this.allPosts = posts;
-  	  this.loading = false;
-      this.filterPosts(this.allPosts);
-  	}, 
-      error => {
-        this.loading = false;
-        this.error = "Could not load posts, please try refreshing the page.";
-      });
+    this.allPosts = this.postService.posts;
   }
 
-  private filterPosts(posts) {
-    this.activePosts = posts.filter(post => post.live === '1' || post.live === 1);
-    this.inActivePosts = posts.filter(post => post.live !== '1' && post.live !== 1);
+  private toggleInfo(event, post) {
+    this.selectedPost = this.selectedPost === post ? null : post;
   }
-
-  private toggleInfo(event,post) {
-    this.selectedPost = (this.selectedPost === post) ? null : post;
-  }
-
 }

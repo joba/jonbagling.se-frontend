@@ -1,8 +1,13 @@
-export class Post {
-	constructor(
-			public id: string, 
-			public title: string,
-			public url: string, 
-			public live: string
-		){}
+export interface Post {
+  id: number;
+  title: string;
+  url: string;
+  description?: string;
+  agency?: string;
+  tags: Tag[];
+}
+
+export interface Tag {
+  id: number;
+  name: string;
 }
