@@ -14,7 +14,7 @@ export class PostComponent implements OnInit {
   constructor(private postService: PostService) {}
 
   ngOnInit() {
-    this.allPosts = this.postService.posts;
+    this.allPosts = this.postService.getPosts;
   }
 
   private toggleInfo(event, post) {
