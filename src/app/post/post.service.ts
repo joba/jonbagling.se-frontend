@@ -1,23 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { Post } from '../models/post';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class PostService {
-
-  constructor(private http: Http) { }
-
   private apiEndpoint = 'https://backend.jonbagling.se/index.php/api/v1';
 
+  constructor(private http: Http) {}
+
   getPosts = (): Observable<Post[]> => {
-  	let postUrl = this.apiEndpoint + '/posts';
+    const postUrl = this.apiEndpoint + '/posts';
 
-  	return this.http.get(postUrl)
-  					.map((res: Response) => {
-  						return res.json();
-  					});
-  }
-
+    return this.http.get(postUrl).pipe(map((res: Response) => res.json()));
+  };
 }
