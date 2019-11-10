@@ -3,7 +3,7 @@ const agada = {
   description:
     'Agada is a platform where licensed therapists can offer treatments online.',
   agency: 'Frost',
-  url: 'https://www.agada.se  ',
+  url: '',
   tags: [
     {
       id: 1,
@@ -196,7 +196,7 @@ const pejlo = {
   title: 'pejlo demo',
   description: '',
   agency: 'Frost',
-  url: 'https://www.pejlo.se/#!/sa-fungerar-pejlo  ',
+  url: '',
   tags: [
     {
       id: 1,
